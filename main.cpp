@@ -5,7 +5,7 @@
 int main()
 {
 	Median<float> median;
-	std::vector<float> randomNumbers{ 64	,
+	std::vector<float> randomNumbers{	64	,
 										84	,
 										13	,
 										19	,
