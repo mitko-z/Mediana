@@ -1,2 +1,16 @@
-﻿  main.cpp
+﻿  Median.cpp
+  Templates.cpp
+e:\programirane\alcatraz ai\mediana\mediana\median.cpp(26): warning C4244: 'return': conversion from 'double' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+  e:\programirane\alcatraz ai\mediana\mediana\median.cpp(14): note: while compiling class template member function 'T Median<T>::getMedian(void)'
+          with
+          [
+              T=float
+          ]
+  e:\programirane\alcatraz ai\mediana\mediana\templates.cpp(4): note: see reference to class template instantiation 'Median<float>' being compiled
+  main.cpp
+  Generating Code...
   Mediana.vcxproj -> E:\programirane\Alcatraz AI\Mediana\Debug\Mediana.exe

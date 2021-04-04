@@ -1,49 +1,38 @@
 #include "Median.h"
 
+#include <algorithm>
 
-template <class T>
-Median<T>::Median()
-{
-	it = data.begin();
-}
 
 template <class T>
 void Median<T>::add(T number)
 {
-	data.insert(number);
-	if (data.size() == 1)
-	{
-		it = data.begin();
-	}
-	else
-	{
-		int half = data.size() / 2;
-		if (half > iteratorPosition)
-		{
-			it++;
-			iteratorPosition++;
-		}
-	}
-	
-	isOdd ^= true;
+	_data.push_back(number);
 }
 
 template <class T>
 T Median<T>::getMedian()
 {
-	if (data.size() == 0)
-		return 0;
-	if (isOdd)
-	{
-		it--;
-		T num1 = *it;
-		it++;
-		T num2 = *it;
-		return (num1 + num2) / 2;
+	size_t n = _data.size();
+	// If size is even
+	if (n % 2 == 0) {
+
+		// Applying nth_element on n/2th index
+		std::nth_element(_data.begin(), _data.begin() + n / 2, _data.end());
+
+		// Applying nth_element on (n-1)/2 th index
+		std::nth_element(_data.begin(), _data.begin() + (n - 1) / 2, _data.end());
+
+		// Find the average of value at index N/2 and (N-1)/2
+		return (T)(_data[(n - 1) / 2] + _data[n / 2]) / 2.0;
 	}
-	else
-	{
-		int num = *it;
-		return num / 2;
+
+	// If size is odd
+	else {
+
+		// Applying nth_element on n/2
+		std::nth_element(_data.begin(), _data.begin() + n / 2, _data.end());
+
+		// Value at index (N/2)th is the median
+		return (T)_data[n / 2];
 	}
 }
