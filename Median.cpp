@@ -1,12 +1,14 @@
 #include "Median.h"
 
 
-Median::Median()
+template <class T>
+Median<T>::Median()
 {
 	it = data.begin();
 }
 
-void Median::add(int number)
+template <class T>
+void Median<T>::add(T number)
 {
 	data.insert(number);
 	if (data.size() == 1)
@@ -15,7 +17,33 @@ void Median::add(int number)
 	}
 	else
 	{
-		it++;
+		int half = data.size() / 2;
+		if (half > iteratorPosition)
+		{
+			it++;
+			iteratorPosition++;
+		}
 	}
+	
 	isOdd ^= true;
+}
+
+template <class T>
+T Median<T>::getMedian()
+{
+	if (data.size() == 0)
+		return 0;
+	if (isOdd)
+	{
+		it--;
+		T num1 = *it;
+		it++;
+		T num2 = *it;
+		return (num1 + num2) / 2;
+	}
+	else
+	{
+		int num = *it;
+		return num / 2;
+	}
 }
