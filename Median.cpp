@@ -13,6 +13,10 @@ template <class T>
 T Median<T>::getMedian()
 {
 	size_t n = _data.size();
+	
+	if (n == 0)
+		return 0;
+
 	// If size is even
 	if (n % 2 == 0) {
 

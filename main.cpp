@@ -19,10 +19,10 @@ int main()
 										43	,
 										62	,
 										4	};
-	for (auto num : randomNumbers)
+	/*for (auto num : randomNumbers)
 	{
 		median.add(num);
-	}
+	}*/
 	float result = median.getMedian();
 	std::cout << result;
 }
